@@ -17,6 +17,7 @@ public class Main {
 //        new Thread(() -> {
 //            ClientApp client3 = new ClientApp().main([]"0");
 //        }).start();
+        System.out.println("Start ServerApp and ClientApp");
 
     }
 }
