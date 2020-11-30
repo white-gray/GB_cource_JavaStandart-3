@@ -5,13 +5,13 @@ public class WaitNotifyClass {
     public void printA() {
         synchronized (mon) {
             try {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 5; i++) {
                     while (currentLetter != 'A') {
                         mon.wait();
                     }
-                    System.out.print("A");
+                    System.out.print("\tA");
                     currentLetter = 'B';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -22,13 +22,30 @@ public class WaitNotifyClass {
     public void printB() {
         synchronized (mon) {
             try {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 5; i++) {
                     while (currentLetter != 'B') {
                         mon.wait();
                     }
                     System.out.print("B");
+                    currentLetter = 'C';
+                    mon.notifyAll();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void printC() {
+        synchronized (mon) {
+            try {
+                for (int i = 0; i < 5; i++) {
+                    while (currentLetter != 'C') {
+                        mon.wait();
+                    }
+                    System.out.print("C");
                     currentLetter = 'A';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
