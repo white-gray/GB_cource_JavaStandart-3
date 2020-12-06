@@ -5,8 +5,8 @@ import java.sql.SQLOutput;
 public class Main {
 
     public static void main(String[] args) {
-//----------for task2 --------------
-        int [] massWith4 = new int[]{1, 2, 3, 1, 7, 4, 7, 3, 9};
+//----------start task2 --------------
+        int [] massWith4 = new int[]{12,2,3,14,5,6,7,8,9};
         System.out.print("For massive ");
         for (int q : massWith4) {
             System.out.print(q + " ");
@@ -15,7 +15,8 @@ public class Main {
         for (int a : cutMassive (massWith4)) {
             System.out.print(" " + a);
         }
-//----------for task3 --------------
+//----------start task3 --------------
+        System.out.println();
         System.out.println("\t and this massive " + checkMassiveFor1_4(massWith4) + " have 1 or(and) 4");
 
     }
@@ -65,7 +66,7 @@ public class Main {
  */
 public static boolean checkMassiveFor1_4 (int[] massiveIn) {
     for (int q : massiveIn){
-        if (q !=4 || q !=4) {
+        if (q ==4 || q ==4) {
             return true;
         }
     }

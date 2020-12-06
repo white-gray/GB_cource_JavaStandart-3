@@ -19,6 +19,7 @@ public class MainTest {
         main = new Main();
     }
 
+//----------for task2 --------------
 
     static Stream<Arguments> arraysForTest() {
         return Stream.of(
@@ -42,5 +43,25 @@ public class MainTest {
         Assertions.assertArrayEquals(out, main.cutMassive(in));
     }
 
-
+//----------for task3 --------------
+static Stream<Arguments> dataForTest() {
+    return Stream.of(
+            Arguments.of((new int[] { 1,2,3,4,5,6,7,8,9}), true),
+            Arguments.of((new int[] { 4,5,6,7,8,9}), true),
+            Arguments.of((new int[] { 1,2,3,4,5,6,4,8,9}), true),
+            Arguments.of((new int[] { 12,2,3,14,5,6,7,8,9}), false),
+            Arguments.of((new int[] { 1,2,3,9,5,4,7,8,9}), true),
+            Arguments.of((new int[] { 1,2,3,4,5,6,7,8,4}), true),
+            Arguments.of((new int[] { 1,2,3,4,4,6,6,6,6}), true),
+            Arguments.of((new int[] { 1,2,3,4,4,6,6,6}), false),
+            Arguments.of((new int[] {}), false),                           // empty -
+            Arguments.of((new int[] { 1,2,3,5,7,6,6,6,6}), true),  // without 4
+            Arguments.of((new int[] { 4}), false)                          // only 4
+    );
+}
+    @ParameterizedTest
+    @MethodSource("dataForTest")
+    public void testCheckMassiveFor1_4(int [] inArr, boolean howThis) {
+        Assertions.assertEquals(howThis, main.checkMassiveFor1_4(inArr));
+    }
 }
